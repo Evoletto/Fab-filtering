@@ -11,6 +11,7 @@ all_files = sorted(os.listdir(directory_path))
 
 
 for file in all_files:
+#tmp = "/Users/Alina/Dropbox/Comp/NR_LH_Combined_Kabat/1A3R_1.pdb"
 	filename = (directory_path + file)
 	lines = [line.rstrip('\n') for line in open(filename)]
 
@@ -22,22 +23,22 @@ for file in all_files:
 				  "H    H    D"]
 
 
+	found = False	
+
 	for index, line in enumerate(lines, start=1):
-		if index >= 7 and index < 10:
-			found = False	
+		# if index >= 7 and index < 10:
+
+		if index >= 7:
 			for condition in conditions:
 				if line.find(condition) > 0:
-					print(line)
-					print(filename)
 					found = True
 					break
 				if found == True:
 					break
 			if found == True:
-				break		
-					
-					
-					
-					
+				# TODO: if found
+				if line.strip().endswith("CYS"):
+					print(filename)
+					break		
 					
 					
