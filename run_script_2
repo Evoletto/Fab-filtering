@@ -1,0 +1,17 @@
+#!/bin/bash
+
+ref=1AD0_1.pdb
+
+for ref in *.pdb
+do
+	for mobile in *.pdb
+	do
+		python3 Step_through_pdb_automated_2.py $ref $mobile > zones.txt
+		result=$(profit -f zones.txt $ref $mobile | grep RMS:)
+		echo "$ref-$mobile: $result"
+		if [ -n "$result" ]
+		then
+			echo "$ref-$mobile: $result" >>RMSDs.txt
+		fi
+	done 
+done
