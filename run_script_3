@@ -1,0 +1,38 @@
+#*************************************************************************
+#
+#   Program:    run_script
+#   File:       run_script_3
+#   
+#   Version:    V1.0
+#   Date:       27.06.19
+#   Function:   BASH command that runs the Step_through_pdb_automated_3.pdb
+#
+#   
+#   Copyright:  (c) Alina Chrzastek, UCL, 2019
+#   Author:     Alina Chrzastek
+#   Address:    Institute of Structural and Molecular Biology
+#               Division of Biosciences
+#               University College
+#               Gower Street
+#               London
+#               WC1E 6BT
+#   EMail:      a.chrzastek.18@ucl.ac.uk
+#*************************************************************************
+
+#!/bin/bash
+
+ref=1AD0_1.pdb
+
+for ref in *.pdb
+do
+	for mobile in *.pdb
+	do
+		python3 Step_through_pdb_automated_3.py $ref $mobile > zones.txt
+		result=$(profit -f zones.txt $ref $mobile | grep RMS:)
+		echo "$ref-$mobile: $result"
+		if [ -n "$result" ]
+		then
+			echo "$ref-$mobile: $result" >>RMSDs.txt
+		fi
+	done 
+done
