@@ -1,3 +1,26 @@
+#*************************************************************************
+#
+#   Program:    FAB_Two_filters_final_whole_folder_automated
+#   File:      	FAB_Two_filters_final_whole_folder_automated.py
+#   
+#   Version:    V1.0
+#   Date:       27.06.19
+#   Function:   Analysis of the .pdb files. Looks for CYS on the C-terminus of 	
+#				Light Chain. Downloads the correct pdb files from www.rcsb.org
+#				
+#   
+#   Copyright:  (c) Alina Chrzastek, UCL, 2019
+#   Author:     Alina Chrzastek
+#   Address:    Institute of Structural and Molecular Biology
+#               Division of Biosciences
+#               University College
+#               Gower Street
+#               London
+#               WC1E 6BT
+#   EMail:      a.chrzastek.18@ucl.ac.uk
+#*************************************************************************
+
+
 import re
 import os, shutil
 import os.path
