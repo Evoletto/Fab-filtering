@@ -1,3 +1,26 @@
+#*************************************************************************
+#
+#   Program:    Finds specific ZONE and prints to the file
+#   File:       Step_through_PDB_output.py
+#   
+#   Version:    V1.0
+#   Date:       16.07.19
+#   Function:   Specifying reference and mobile file, then finding ZONE of intrest,
+#				Prints to the file
+#				
+#
+#   
+#   Copyright:  (c) Alina Chrzastek, UCL, 2019
+#   Author:     Alina Chrzastek
+#   Address:    Institute of Structural and Molecular Biology
+#               Division of Biosciences
+#               University College
+#               Gower Street
+#               London
+#               WC1E 6BT
+#   EMail:      a.chrzastek.18@ucl.ac.uk
+#*************************************************************************
+
 import re
 import os, shutil
 import os.path
@@ -14,10 +37,10 @@ def line_contains_the_same_conditions(line, conditions):
 	
 	
 	
-directory_path = "/Users/Alina/Google_Drive_BBK/Comp/Compatible_SSBOND/"
+directory_path = "/Volumes/ALINASD/PhD_Rotations/Comp/Compatible_SSBOND/"
 file1 = "1A3R_1.pdb"
 file2 = "1AD0_1.pdb"
-text_file = open("/Users/Alina/Google_Drive_BBK/Comp/Output.txt", "w")
+text_file = open("/Volumes/ALINASD/PhD_Rotations/Comp/Output.txt", "w")
 
 conditions = ["CYS L", "CYS H", "CYS A", "CYS B"]
 
