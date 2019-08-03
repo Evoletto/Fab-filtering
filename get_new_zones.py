@@ -1,6 +1,6 @@
 #*************************************************************************
 #
-#   Program:    get_new_zones
+#   Program:    Finds ZONE of intrest within pdb file
 #   File:       get_new_zones.py
 #   
 #   Version:    V1.0
@@ -27,7 +27,10 @@ from subprocess import call
 
 reference_file = sys.argv[1]
 mobile_file = sys.argv[2]
-
+params = ""
+if len(sys.argv) > 2:
+	params = sys.argv[3]
+	
 # Get all .pdb file names from given directory
 def get_file_content(file):
 	if not file.endswith(".pdb"):
@@ -81,7 +84,10 @@ if file_contents is not None:
 
 		# checking if zones are valid
 		if len(zone_pdb1) >= 2 and len(zone_pdb2) >= 2:
-			print(zone_pdb2[0] + "," + zone_pdb2[1])
+			if params == "-short":
+				print(str(zone_pdb2[0])[5:] + "," + str(zone_pdb2[1])[5:])
+			else:
+				print(zone_pdb2[0] + "," + zone_pdb2[1])
 
 
 
