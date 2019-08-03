@@ -32,8 +32,6 @@ for file_index in range(1, 11):
 	file_contents = my_file.readlines()
 
 
-	# text_file_31 = open("results_for_VMD_31_lines.pdb", "w")
-
 	def get_chain_numbers(model):
 		numbers = []
 		for line in model:
@@ -66,22 +64,20 @@ for file_index in range(1, 11):
 				grouped_models[model_line_count] = [single_model_lines]		
 			single_model_lines = []
 			model_line_count = 0
-
-	# for line_count in grouped_models:
-	# 	print(line_count, ":")
-	# 	for l in grouped_models[line_count]:
-	# 		for i in l:
-	# 			print(i)
+	for line_count in grouped_models:
+		print(line_count, ":", len(grouped_models[line_count]))
+# 		for l in grouped_models[line_count]:
+# 			for i in l:
+# 				print(i)
 		
 	# modifies each model - changing chain labels, atom number
 	mod = []
 	for line_count in grouped_models:
 		base_model = grouped_models[line_count][0]
-	# 	print("base model for ", line_count, " : ", base_model)
+		print("doing for ln count: ", line_count)
 		for models in grouped_models[line_count]:
-			# models for this line len
+			# models for this length
 
-	# 		k = list(grouped_models.keys())[0]
 		
 			base_chain_numbers = get_chain_numbers(base_model)
 			new_model_lines = []
@@ -96,14 +92,14 @@ for file_index in range(1, 11):
 					# copy current line without modifications
 					new_model_lines.append(model_line)
 			mod.append(new_model_lines)
-		break
-
+# 		break
+		print("Done, another line count")
 	os.remove(source) #this deletes the file
-	# new file
+# 	# new file
 	pdb_file = open(source, "w")
 	for model in mod:
 		for model_line in model:
-			#print(ln)
+# 			print(model_line)
 			pdb_file.write(model_line)
 	pdb_file.close()
 	# 
