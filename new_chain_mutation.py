@@ -142,7 +142,6 @@ for m in mod:
 	# check model clasification
 	model_ids = get_model_labels(mod[m])
 	class_id = get_model_classification(model_ids)
-	print(model_ids, " :-> ", class_id)
 	copy_model_to_file(mod[m], class_id)
 
 		
