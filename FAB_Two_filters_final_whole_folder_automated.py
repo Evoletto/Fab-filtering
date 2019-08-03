@@ -1,11 +1,11 @@
 #*************************************************************************
 #
-#   Program:    FAB_Two_filters_final_whole_folder_automated
+#   Program:    Extraction of FAB information
 #   File:      	FAB_Two_filters_final_whole_folder_automated.py
 #   
 #   Version:    V1.0
 #   Date:       27.06.19
-#   Function:   Analysis of the .pdb files. Looks for CYS on the C-terminus of 	
+#   Function:   Analysis of the FAB .pdb files. Looking for CYS on the C-terminus of 	
 #				Light Chain. Downloads the correct pdb files from www.rcsb.org
 #				
 #   
@@ -19,7 +19,6 @@
 #               WC1E 6BT
 #   EMail:      a.chrzastek.18@ucl.ac.uk
 #*************************************************************************
-
 
 import re
 import os, shutil
