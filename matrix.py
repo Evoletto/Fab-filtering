@@ -23,7 +23,7 @@
 import os.path
 import sys
 
-#rmsd_file_path = "/Users/Alina/Google_Drive_BBK/Comp/Matrix/RMSDs_3.txt" #sys.argv[1]
+#rmsd_file_path = "/Users/Alina/Google_Drive_BBK/Comp/Matrix/RMSDs_3.txt" 
 rmsd_file_path = sys.argv[1]
 #sys.stdout = open("/Users/Alina/Google_Drive_BBK/Comp/Matrix/Matrix_sum.txt", "w")
 sys.stdout = open(sys.argv[2], "w")
