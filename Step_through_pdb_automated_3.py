@@ -1,6 +1,6 @@
 #*************************************************************************
 #
-#   Program:    step_through_pdb
+#   Program:    Going through pdb files and identifying ZONEs for ProFit analysis
 #   File:       step_through_pdb_automated_3.py
 #   
 #   Version:    V1.0
@@ -18,9 +18,8 @@
 #               Gower Street
 #               London
 #               WC1E 6BT
-#   EMail:      a.chrzastek.18@ucl.ac.uk
+#   EMail:      a.chrzastek.18@ucl.ac.uk 
 #*************************************************************************
-
 
 import os.path
 import sys
