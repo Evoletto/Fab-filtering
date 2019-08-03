@@ -98,10 +98,10 @@ for index, line in enumerate(lines_to_process, start=0):
  			
  			# if line strip contains CYS:
 			if line.strip().find("CYS") > 0:
-				if file_contents[index + 5].find("OXT") > 0:
-					lines_filtered.extend(get_lines_from_file(lines_to_process, index - 1, index + 5))
-				else:
-					lines_filtered.extend(get_lines_from_file(lines_to_process, index - 1, index + 4))
+				# if file_contents[index + 5].find("OXT") > 0:
+# 					lines_filtered.extend(get_lines_from_file(lines_to_process, index - 1, index + 4))
+# 				else:
+				lines_filtered.extend(get_lines_from_file(lines_to_process, index - 1, index + 4))
 				# index - 1 #N
 				# index	  #CA
 				# index + 1 #C
