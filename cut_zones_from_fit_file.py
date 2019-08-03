@@ -1,6 +1,6 @@
 #*************************************************************************
 #
-#   Program:    cut_zones_from_fit_file
+#   Program:    Extracts specified residues into a new file
 #   File:       cut_zones_from_fit_file.py
 #   
 #   Version:    V1.0
@@ -21,9 +21,7 @@
 #               WC1E 6BT
 #   EMail:      a.chrzastek.18@ucl.ac.uk
 #*************************************************************************
-
 import sys
-
 
 if len(sys.argv) > 1:
 	fit_filename = sys.argv[1]
@@ -36,6 +34,7 @@ if len(sys.argv) > 1:
 		file_contents = file.readlines()
 		copied_lines.append("MODEL        " + current_index)
 		copied_lines.append("REMARK " + fit_filename)
+
 		for line in file_contents:
 			for chain_element in chains:
 				chain = str(chain_element.replace("'", ""))
@@ -58,10 +57,9 @@ if len(sys.argv) > 1:
 							break
 		#print("ENDMDL_" + current_index)
 		copied_lines.append("ENDMDL")	
-		
 		# check if first line starts with LYS
-		if len(copied_lines) > 2:
-			if copied_lines[2].find("LYS") > 0:
-				for copied_line in copied_lines:
-					print(copied_line)
-		
+		# if len(copied_lines) > 2:
+# 			if copied_lines[2].find("LYS") > 0:
+		for copied_line in copied_lines:
+			print(copied_line)
+	
