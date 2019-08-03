@@ -28,20 +28,29 @@ index=1
 
 for mobile in "$mobile_dir"/*.pdb 
 do
-	zones=$(python3 get_new_zones.py $ref $mobile)
+	zones=$(python3 get_new_zones.py $ref $mobile "-short")
+
 	a=${ref%.*}   # remove suffix starting with "_"
 	b=${mobile:$((${#mobile} - 10)):6}
 	fitName="$a-$b.fit"
 
  	area_res=$(pdbfindnearres -l $zones LYS $fitName)
-
-	chains=$(python3 get_min_max_from_zones.py "$area_res" "$zones")
-
-	# cut zones from fit file
-#  	umc=$(python3 cut_zones_from_fit_file.py $fitName $chains "$index")
-#  	echo "$umc"
-	python3 cut_zones_from_fit_file.py $fitName $chains "$index" >> results_for_VMD.pdb
-
-	index=$(( $index + 1 ))
-
+ 	
+    if [ ! -z "$area_res" ]  
+    	then
+#      	echo "$fitName - $zones - $area_res"
+#     	cp $fitName "./Files_with_LYS/"
+    	
+    	chains=$(python3 get_min_max_from_zones.py "$area_res" "$zones")
+#  		echo "$chains" 
+# 		cut zones from fit file
+		echo "analyzing $fitName"
+	   	# umc=$(python3 cut_zones_from_fit_file.py $fitName $chains "$index")
+# 	 	echo "$umc"
+		python3 cut_zones_from_fit_file.py $fitName $chains "$index" >> results_for_VMD.pdb
+ 		else
+ 			echo "skipping $fitName"
+    fi 
+    index=$(( $index + 1 ))
+ 	
 done
