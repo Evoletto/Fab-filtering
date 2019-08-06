@@ -103,16 +103,16 @@ results_for_VMD_replaced.pdb
 
 Due to the LYS being found at different location towards the CYS based on the previous analysis (get_min_max_from_zones.py), this presented an issue of splitting the files. For the VMD analysis all files must be in the same order, have the same ATOM numbers, residue numbers and chain labels as mentioned above. It was decided that the combined fit residues will be split based on the LYS location, resulting in ten different conformation:
 
-1. 	    GLY GLY CYS LYS GLY CYS		= 45 files
-2.        LYS GLY GLY CYS GLY GLY CYS		= 9 files
-3.        LYS GLY GLY CYS LYS GLY CYS		= 5 files
-4. 	     LYS GLY CYS GLY GLY CYS LYS	= 1 file
-5. 	     LYS GLY CYS GLY GLY CYS 		= 24 files
-6.                GLY GLY CYS LYS GLY CYS LYS	= 5 files	
-7.         LYS GLY GLY CYS LYS GLY GLY CYS	= 1 file
-8.                 LYS GLY CYS LYS GLY GLY CYS	= 3 files
-9.                GLY GLY CYS GLY GLY CYS LYS	= 1 file
-10. 	       LYS LYS CYS GLY GLY CYS LYS	= 1 file
+	1. GLY GLY CYS LYS GLY CYS		= 45 files
+	2. LYS GLY GLY CYS GLY GLY CYS		= 9 files
+	3. LYS GLY GLY CYS LYS GLY CYS		= 5 files	
+	4. LYS GLY CYS GLY GLY CYS LYS		= 1 file
+	5. LYS GLY CYS GLY GLY CYS 		= 24 files
+	6. GLY GLY CYS LYS GLY CYS LYS		= 5 files	
+	7. LYS GLY GLY CYS LYS GLY GLY CYS	= 1 file
+	8. LYS GLY CYS LYS GLY GLY CYS		= 3 files
+	9. GLY GLY CYS GLY GLY CYS LYS		= 1 file
+	10.LYS LYS CYS GLY GLY CYS LYS		= 1 file
 
 This was performed by another script 
 ```        
@@ -138,8 +138,6 @@ A new script was generated to calculate a distance of an atom of a specified res
 Here a user can select a specific residue from the bins generated above and find the distance between two atoms.
 
 
-  8. histogram_final.py
-  9 new_matrix_dendrogram.py
 
 ### Germline analysis
 
@@ -148,7 +146,14 @@ Germline analysis of the FAB’ antibody sequences used was performed by using X
 Germline_analysis.py
 ```
 
-
+### Graphs
+```
+  8. histogram_final.py
+```
+and
+```
+  9 new_matrix_dendrogram.py
+```
 
 
 
