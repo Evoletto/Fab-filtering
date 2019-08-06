@@ -3,10 +3,22 @@
 Proximity of lysine to light chain terminal of the disulfide bridge in Fab region of antibody
 
 ## Flow of the project
+
+```
   1. FAB_Two_filters_final_whole_folder_automated.py
+```
+
+```
   2. FAB_second_screen.py
+```
+
+```
   3. Step_through_pdb_automated.py
+```
+
+```
   3.1 run_script 
+```
               -> .fit files
               -> RMSDs.txt
   4. Matrix.py
