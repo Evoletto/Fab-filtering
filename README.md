@@ -2,11 +2,16 @@
 
 Proximity of lysine to light chain terminal of the disulfide bridge in Fab region of antibody
 
-## Flow of the project
+## Flow of the project:
 
+Initial antibody .pdb files were first downloaded from the AbDB: Antibody Structure Database (http://www.bioinf.org.uk/abs/abdb/ downloaded on 13 May 2019). Downloaded dataset included Non-Redundant (NR) Kabat Antibody (Light + Heavy Fragment variable (Fv)) Datasets included total of 1483 files.
+
+Files were first screened based on the cysteine residue being found on the C-terminus of the light chain (LC):
 ```
   1. FAB_Two_filters_final_whole_folder_automated.py
 ```
+This information was extracted from the SEQRES region of the LC, once the condition was met the chain labels and the file name were identified followed by download of the full FAB antibody file from the https://www.rcsb.org.
+
 
 ```
   2. FAB_second_screen.py
