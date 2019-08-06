@@ -63,17 +63,97 @@ From here, based on the matrix_sum results, a file with the lowest representatio
 
 ### Visualisation of the results
 
+In order to represent and visualise the whole fitting, the results had to be categorised
+The three separate codes were run through BASH script from terminal
+```
   5. call_out_new_zones.sh
+```
+
+Firstly, the ZONEs of interests from the mobile files were identified again by using:
+```
   5.1 get_new_zones.py
+```
+
+The nearest lysine residue to the specified ZONE residue (CYS) had to be identified by using pdbfindnearres tool with the cut of distance of 8A by using:
+```
   5.2 get_min_max_from_zones.py
+```
+Once these seven residues from LC and seven from HC were identified, they were printed into a new .pdb file. The ZONEs and files were separated from each other by adding MODEL to the top and ENDMDL to the bottom of each file alongside the name of the file within REMARK section by using:
+```
   5.3 cut_zones_from_fit_file.py
-            -> results_for_VMD.pdb
-  6. Mutation
+```
+This generated a pdb file called
+```
+     results_for_VMD.pdb
+```
+that contained just the extracted residues from all the fitting performed earlier.
+
+
+The residues which were not LYS or CYS had to be mutated into a GLY, alongside the ATOM numbers, residue numbers and chain labels as these needed to be identical between all files. 
+
+First, the residues that were not CYS or LYS were from the results_for_VMD file were mutated to GLY using:
+ 
+```
   6.1 res_mutation.py
-            -> results_for_VMD_replaced.pdb
+```
+followed by generation of new output file:
+```
+results_for_VMD_replaced.pdb
+```
+
+Due to the LYS being found at different location towards the CYS based on the previous analysis (get_min_max_from_zones.py), this presented an issue of splitting the files. For the VMD analysis all files must be in the same order, have the same ATOM numbers, residue numbers and chain labels as mentioned above. It was decided that the combined fit residues will be split based on the LYS location, resulting in ten different conformation:
+
+1. 	    GLY GLY CYS LYS GLY CYS		= 45 files
+2.        LYS GLY GLY CYS GLY GLY CYS		= 9 files
+3.        LYS GLY GLY CYS LYS GLY CYS		= 5 files
+4. 	     LYS GLY CYS GLY GLY CYS LYS	= 1 file
+5. 	     LYS GLY CYS GLY GLY CYS 		= 24 files
+6.                GLY GLY CYS LYS GLY CYS LYS	= 5 files	
+7.         LYS GLY GLY CYS LYS GLY GLY CYS	= 1 file
+8.                 LYS GLY CYS LYS GLY GLY CYS	= 3 files
+9.                GLY GLY CYS GLY GLY CYS LYS	= 1 file
+10. 	       LYS LYS CYS GLY GLY CYS LYS	= 1 file
+
+This was performed by another script 
+```        
   6.2 new_chain_mutation.py
-            -> results_for_VMD_replaced_vX.pdb
+```
+where the files were separated to their appropriate bins and chain labels were changed to either L or H where appropriate. This generated new output files:
+```
+      results_for_VMD_replaced_vX.pdb
+```
+
+Lastly, the chain residue number were changed in each bin for the same number throughout by using:
+```
   6.3 chain_format.py
-  7. val_distance_automatic.py
+```
+The result was 10 separate pdb files, each containing GLY, LYS and CYS residues with x, y, and z coordinates from the ProFit fitting.
+
+
+
+A new script was generated to calculate a distance of an atom of a specified residue. This was performed using :
+```
+  7. cal_distance_automatic.py
+```
+Here a user can select a specific residue from the bins generated above and find the distance between two atoms.
+
+
   8. histogram_final.py
   9 new_matrix_dendrogram.py
+
+### Germline analysis
+
+Germline analysis of the FAB’ antibody sequences used was performed by using XXXXX tool. This resulted in two files containing each V domains and C domains. To analyse the difference in gene segments that the files contained the distance calculation was performed using cal_distance_automatic.py. Then a new script was developed that used the distance information and the gene segment for each light and heavy chain of the Fab fragment: 
+```
+Germline_analysis.py
+```
+
+
+
+
+
+
+
+
+
+
