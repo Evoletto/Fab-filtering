@@ -48,9 +48,17 @@ That included the fitting coordinates.
 Root Mean Square Deviation (RMSD) is a measure of a difference between two structures.
  
             
-              
+ From here, a script was written;
+```              
   4. Matrix.py
-            -> matrix.txt
+```
+that analysed the comparison between files generated in the RMSDs.txt file based on the matrix. The sum of each row was added, and the lowest representation was selected, the results were printed into
+```
+  Matrix_sum.txt 
+```
+From here, based on the matrix_sum results, a file with the lowest representation as well as all the files that were fitted to it were selected and moved to new folder for easier access. 
+
+
   5. call_out_new_zones.sh
   5.1 get_new_zones.py
   5.2 get_min_max_from_zones.py
