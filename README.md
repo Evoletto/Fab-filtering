@@ -4,6 +4,8 @@ Proximity of lysine to light chain terminal of the disulfide bridge in Fab regio
 
 ## Flow of the project:
 
+### Preparation of the files for analysis
+
 Initial antibody .pdb files were first downloaded from the AbDB: Antibody Structure Database (http://www.bioinf.org.uk/abs/abdb/). Downloaded dataset included Non-Redundant (NR) Kabat Antibody (Light + Heavy Fragment variable (Fv)) Datasets included total of 1483 files.
 
 Files were first screened based on the cysteine residue being found on the C-terminus of the light chain (LC):
@@ -18,6 +20,7 @@ Acquired files were screened again for the presence of cysteine residue on the C
   2. FAB_second_screen.py
 ```
 
+### ProFit analysis
 
 Meanwhile, a protein fitting program called “ProFit” was downloaded (http://www.bioinf.org.uk/software/profit/). Followed by installation of BiopTools and BiopLib tools for handing of protein structures  (http://www.bioinf.org.uk/software/bioptools/index.html, http://www.bioinf.org.uk/software/bioplib/index.html).
 
@@ -58,6 +61,7 @@ that analysed the comparison between files generated in the RMSDs.txt file based
 ```
 From here, based on the matrix_sum results, a file with the lowest representation as well as all the files that were fitted to it were selected and moved to new folder for easier access. 
 
+### Visualisation of the results
 
   5. call_out_new_zones.sh
   5.1 get_new_zones.py
