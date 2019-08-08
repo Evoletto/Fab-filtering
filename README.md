@@ -6,7 +6,7 @@ Proximity of lysine to light chain terminal of the disulfide bridge in Fab regio
 
 ### Preparation of the files for analysis
 
-Initial antibody .pdb files were first downloaded from the AbDB: Antibody Structure Database (http://www.bioinf.org.uk/abs/abdb/). Downloaded dataset included Non-Redundant (NR) Kabat Antibody (Light + Heavy Fragment variable (Fv)) Datasets included total of 1483 files.
+Initial antibody .pdb files were first downloaded from the AbDB (Antibody Structure Database) (http://www.bioinf.org.uk/abs/abdb/). Downloaded dataset included Non-Redundant (NR) Kabat Antibody (Light + Heavy Fragment variable (Fv)) Datasets included total of 1483 files.
 
 Files were first screened based on the cysteine residue being found on the C-terminus of the light chain (LC):
 ```
@@ -22,7 +22,7 @@ Acquired files were screened again for the presence of cysteine residue on the C
 
 ### ProFit analysis
 
-Meanwhile, a protein fitting program called “ProFit” was downloaded (http://www.bioinf.org.uk/software/profit/). Followed by installation of BiopTools and BiopLib tools for handing of protein structures  (http://www.bioinf.org.uk/software/bioptools/index.html, http://www.bioinf.org.uk/software/bioplib/index.html).
+The protein fitting program called “ProFit” was downloaded (http://www.bioinf.org.uk/software/profit/). Followed by installation of BiopTools and BiopLib tools for handing of protein structures  (http://www.bioinf.org.uk/software/bioptools/index.html, http://www.bioinf.org.uk/software/bioplib/index.html).
 
 The compatible files were then fitted against each other by selecting the first file to act as a reference followed by fitting the remaining files against that reference and generating an RMS value. Then the next file on the list was set as a reference, this was performed until all files were analysed against each other. The conditions by which the files were fitted together was set up as a ZONE. The ZONE was defined as a cysteine residue on the LC plus two amino acids prior that against cysteine residue on the HC plus the two amino acids prior that. The ZONES were listed as per ProFit requirements as well as selected atom by which the fitting should take place, here ATOM CA and then later CB, and SG.
 
@@ -32,7 +32,7 @@ The next script used was:
 ```
 that checked the SSBOND region in the pdb file for the presence of complete Fab disulfide bond. 
 
-Furthermore, the script is being called out from the terminal:
+The script is being called out from the terminal:
 ```
   3.1 run_script 
 ```
@@ -42,16 +42,14 @@ RMSDs.txt
 ```
 The RMSDs.txt file contained names of the two files (reference_file.pdb -mobile_file.pdb RMS: XXX) and the RMS value. 
 
-Furthermore, all the fitting results from the ATOM region were saved as 
+All the fitting results from the ATOM region were saved as 
 ```
 reference_file-mobile_file.fit.
 ```
 That included the fitting coordinates.
-
-Root Mean Square Deviation (RMSD) is a measure of a difference between two structures.
  
             
- From here, a script was written;
+From here, a script was written;
 ```              
   4. Matrix.py
 ```
@@ -59,7 +57,7 @@ that analysed the comparison between files generated in the RMSDs.txt file based
 ```
   Matrix_sum.txt 
 ```
-From here, based on the matrix_sum results, a file with the lowest representation as well as all the files that were fitted to it were selected and moved to new folder for easier access. 
+Based on the matrix_sum results, a file with the lowest representation as well as all the files that were fitted to it were selected and moved to new folder for easier access. 
 
 ### Visualisation of the results
 
@@ -102,7 +100,7 @@ results_for_VMD_replaced.pdb
 ```
 
 Due to the LYS being found at different location towards the CYS based on the previous analysis (get_min_max_from_zones.py), this presented an issue of splitting the files. For the VMD analysis all files must be in the same order, have the same ATOM numbers, residue numbers and chain labels as mentioned above. It was decided that the combined fit residues will be split based on the LYS location, resulting in ten different conformation:
-
+``` 
 	1. GLY GLY CYS LYS GLY CYS		= 45 files
 	2. LYS GLY GLY CYS GLY GLY CYS		= 9 files
 	3. LYS GLY GLY CYS LYS GLY CYS		= 5 files	
@@ -113,6 +111,7 @@ Due to the LYS being found at different location towards the CYS based on the pr
 	8. LYS GLY CYS LYS GLY GLY CYS		= 3 files
 	9. GLY GLY CYS GLY GLY CYS LYS		= 1 file
 	10.LYS LYS CYS GLY GLY CYS LYS		= 1 file
+``` 
 
 This was performed by another script 
 ```        
