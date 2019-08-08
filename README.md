@@ -25,6 +25,7 @@ Acquired files were screened again for the presence of cysteine residue on the C
 
 The protein fitting program called “ProFit” was downloaded (http://www.bioinf.org.uk/software/profit/). Followed by installation of BiopTools and BiopLib tools for handing of protein structures  (http://www.bioinf.org.uk/software/bioptools/index.html, http://www.bioinf.org.uk/software/bioplib/index.html).
 
+
 The compatible files were then fitted against each other by selecting the first file to act as a reference followed by fitting the remaining files against that reference and generating an RMS value. Then the next file on the list was set as a reference, this was performed until all files were analysed against each other. The conditions by which the files were fitted together was set up as a ZONE. The ZONE was defined as a cysteine residue on the LC plus two amino acids prior that against cysteine residue on the HC plus the two amino acids prior that. The ZONES were listed as per ProFit requirements as well as selected atom by which the fitting should take place, here ATOM CA and then later CB, and SG.
 
 The next script used was:
